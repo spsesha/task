@@ -3,12 +3,12 @@ const http = require("http"),
   path = require("path"),
   logger = require("morgan"),
   express = require("express"),
-  mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
-  cookieParser = require("cookie-parser");
+  cookieParser = require("cookie-parser"),
+  mongoConnection = require("./db/connection");
 
-const index = require("./routes/index"),
-  users = require("./routes/users");
+// routes
+const index = require("./routes/index");
 
 const app = express();
 
@@ -24,8 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// connection database
+mongoConnection.connectDB();
+
 app.use("/", index);
-app.use("/users", users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
