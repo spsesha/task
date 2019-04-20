@@ -33,6 +33,12 @@ npm run dev
 
   3. Sort your results by num_favs, tomatoes.viewer.rating, and title, all in descending order
 
+  4. Hint: use aggreagtion pipeline, use $match, $in (for array operators), $setIntersection (for matching), $addFields for adding new fields, \$sort (for sorting records)
+
+  5. MongoDB Aggregation Link (https://docs.mongodb.com/manual/aggregation/)
+
+  6. Query operators Link (https://docs.mongodb.com/manual/reference/operator/aggregation/)
+
 - Client
 
   1. Create new React project (use React and React-dom library) no need to maintain any state management can use create-react-app
