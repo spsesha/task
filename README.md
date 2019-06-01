@@ -63,3 +63,14 @@ npm run dev
 - Code Push (important)
 
   1. create new branch namely "task1" in the given repo and push all commits into new task1 branch (dont push code to master branch)
+
+
+
+# Developer added notes
+
+Build the angular project before running the express app
+
+```sh
+npm run build 
+```
+inside angular folder will build the app and place it in public folder
