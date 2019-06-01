@@ -68,9 +68,8 @@ npm run dev
 
 # Developer added notes
 
-Build the angular project before running the express app
-
-```sh
-npm run build 
+Use 
 ```
-inside angular folder will build the app and place it in public folder
+npm start
+```
+to build the angular file and start the application

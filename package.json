@@ -4,7 +4,7 @@
   "description": "Display movies query onto rendered view using React Stack ",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run build --prefix angular && node app.js",
     "dev": "nodemon app.js"
   },
   "dependencies": {
