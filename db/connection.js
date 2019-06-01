@@ -3,7 +3,7 @@
 const mongoose = require("mongoose");
 
 module.exports = {
-  database: "",
+  database: "mongodb+srv://interviewone:A1W8qeiTRZBPH6OV@stitchdev-bwcmt.mongodb.net/exps?retryWrites=true",
   options: {
     useNewUrlParser: true,
     reconnectTries: Number.MAX_VALUE,
