@@ -13,4 +13,6 @@ router.get("/", function(req, res, next) {
   });
 });
 
+router.use("/api", require('./api/api.route'))
+
 module.exports = router;
