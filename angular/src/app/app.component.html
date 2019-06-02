@@ -12,7 +12,7 @@
 
     <ng-container matColumnDef="position">
       <mat-header-cell *matHeaderCellDef>S.No</mat-header-cell>
-      <mat-cell *matCellDef="let element; let i = index">{{i+1}}</mat-cell>
+      <mat-cell *matCellDef="let element; let i = index">{{(page-1) * 10 + i+1}}</mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="title">
@@ -44,6 +44,11 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   
   </mat-table>
-  
-  <mat-paginator [pageSize]="10"></mat-paginator>
+  <div class="example-button-row">
+    <button mat-raised-button (click)="moveBack(true)">&lt;&lt; First</button>
+    <button mat-raised-button (click)="moveBack()">&lt; Previous</button>
+    <span>Page {{page}} of {{total}}</span>
+    <button mat-raised-button (click)="moveForward()">Next &gt;</button>
+    <button mat-raised-button (click)="moveForward(true)">Last &gt;&gt;</button>
+  </div>  
 </div>

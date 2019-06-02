@@ -10,20 +10,49 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AppComponent {
   
-  dataSource: MatTableDataSource<any> = new MatTableDataSource([]);
+  dataSource: any[] = [];
   isLoading: boolean = true;
+  page: number = 1;
+  total: number = 0;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   displayedColumns: string[] = ['position', 'title', 'num_favs', 'cast', 'year', 'rating'];
 
   constructor(private api: ApiService) {
-    this.api.getRemoteData()
+    this.api.getRemoteData(this.page)
       .subscribe((data: any[]) => {
-        this.dataSource = new MatTableDataSource(data);
-        console.log(this.paginator);
-        this.dataSource.paginator = this.paginator; 
+        this.total = Math.ceil(data[0].metadata[0].total/10);
+        this.dataSource = (data[0].data);
         this.isLoading = false;
       })
   }
+
+  moveBack(isFirst: boolean = false) {
+    this.isLoading = true;
+    this.page = isFirst ? 1 : (this.page - 1);
+    if(this.page < 1)
+      this.page = 1
+    else this.callRemoteMethod();
+  }
+
+  moveForward(isLast: boolean = false) {
+    this.isLoading = true;
+    this.page = isLast ? this.total : (this.page + 1);
+    if(this.page > this.total)
+      this.page = this.total;
+    else this.callRemoteMethod();
+  }
+
+  callRemoteMethod() {
+    this.api.getRemoteData(this.page)
+      .subscribe((data: any[]) => {
+        this.total = Math.ceil(data[0].metadata[0].total/10);
+        this.dataSource = (data[0].data);
+        this.isLoading = false
+      }, err => {
+        alert(err)
+      })
+  }
+
 }

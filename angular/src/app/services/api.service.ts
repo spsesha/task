@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
     constructor(private http: HttpClient) {}
 
-    getRemoteData() {
-        return this.http.get('/api/v1/movies');
+    getRemoteData(page: number) {
+        return this.http.get(`/api/v1/movies?page=${page}`);
     }
 }

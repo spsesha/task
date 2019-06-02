@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
@@ -19,7 +19,7 @@ import { ApiService } from './services/api.service';
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule,
+    MatButtonModule,
     MatProgressSpinnerModule
   ],
   providers: [ApiService],
